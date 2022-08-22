@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>To-Do List</title>
+    <!-- Boxicon CDN Link -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <section class="to-do">
+      <div class="header">
+        <h1 id="title">TITLE</h1>
+      </div>
+
+      <div class="side-bar">
+        <!-- LOGO  -->
+        <div class="logo-content">
+          <div class="logo">
+            <i class="bx bx-book-bookmark"></i>
+            <div class="logo-name">To-Do</div>
+          </div>
+          <i class="bx bx-menu" id="btn"></i>
+        </div>
+
+        <!-- SIDE-BAR LİSTE-->
+        <ul class="sidebar-list">
+          <li>
+            <a href="#" id="0">
+              <i class="bx bx-calendar"></i>
+              <span class="links-name">Today</span>
+              <i class="bx bxs-edit-alt"></i>
+              <i class="bx bxs-x-circle"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" id="1">
+              <i class="bx bx-bookmark"></i>
+              <span class="links-name">Important</span>
+              <i class="bx bxs-edit-alt"></i>
+              <i class="bx bxs-x-circle"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" id="2">
+              <i class="bx bx-note"></i>
+              <span class="links-name">Notes</span>
+              <i class="bx bxs-edit-alt"></i>
+              <i class="bx bxs-x-circle"></i>
+            </a>
+          </li>
+        </ul>
+        <a href="#" id="input">
+          <i class="bx bxs-layer-plus"></i>
+          <span class="links-name"></span>
+          <input type="text" class="liste" />
+          <i class="bx bx-upload"></i>
+        </a>
+      </div>
+
+      <!-- TO-DO SECTİON -->
+      <div class="table">
+        <div class="table-image">
+          <img src="lemon-wallpaper.jpg" />
+          <ul class="duty">
+            <li class="box">
+              <div>Important</div>
+              <i class="bx bx-plus"></i>
+              <i class="bx bxs-edit-alt"></i>
+            </li>
+            <li class="box">
+              <div>Notes</div>
+              <i class="bx bx-plus"></i>
+              <i class="bx bxs-edit-alt"></i>
+            </li>
+          </ul>
+          <a href="#" class="duty" id="input-2">
+            <i class="bx bxs-layer-plus" id="box-plus-duty"></i>
+            <span class="links-name"></span>
+            <input type="text" class="liste" id="list-duty" />
+            <i class="bx bx-upload" id=""></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
