@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  color: #333;
+  background-color: rgb(252, 239, 190);
+}
+
+.header {
+  position: absolute;
+  width: calc(100% - 5rem);
+  left: 5rem;
+  height: 6rem;
+  background-color: rgb(252, 239, 190);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+.header.active {
+  width: calc(100% - 22.5rem);
+  left: 22.5rem;
+  transition: all 0.5s ease;
+}
+#title {
+  font-size: 5rem;
+}
+
+.side-bar {
+  position: absolute;
+  padding-top: 2rem;
+  width: 5rem;
+  height: 100vh;
+  font-size: 2rem;
+  background-color: rgb(243, 210, 111);
+  transition: all 0.5s ease;
+}
+
+.side-bar.active {
+  width: 22.5rem;
+  height: 100%;
+}
+.logo {
+  display: none;
+}
+.logo.active {
+  position: absolute;
+  display: flex;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  font-weight: 600;
+  padding-left: 2rem;
+}
+#btn {
+  position: absolute;
+  font-size: 2.5rem;
+  left: 2rem;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.5s ease;
+}
+#btn.active {
+  left: 18.5rem;
+}
+#btn:hover {
+  color: #333;
+  background-color: rgba(149, 135, 135, 0.479);
+}
+.sidebar-list {
+  display: none;
+  /* position: absolute;
+  margin-top: 4.5rem; */
+}
+.sidebar-list.active {
+  display: block;
+  position: absolute;
+  margin-top: 6rem;
+}
+
+li {
+  height: 4rem;
+  list-style: none;
+  /* display: flex;
+  align-items: center;
+  width: 21rem;
+  height: 3.8rem;
+  font-size: 2rem;
+  font-weight: 1000;
+  padding-left: 1rem;
+  margin-left: 1rem;
+  transition: all 0.5s ease;
+  border-radius: 8px;
+  color: rgb(7, 76, 42); */
+}
+a {
+  /* position: absolute; */
+  display: flex;
+  align-items: center;
+  width: 21rem;
+  height: 3.8rem;
+  font-size: 2rem;
+  font-weight: 1000;
+  padding-left: 1rem;
+  margin-left: 1rem;
+  transition: all 0.5s ease;
+  color: rgb(93, 127, 15);
+  border-radius: 8px;
+  text-decoration: none;
+}
+a:hover {
+  color: #333;
+  background-color: rgba(149, 135, 135, 0.479);
+}
+.links-name {
+  position: absolute;
+  margin-left: 2.5rem;
+}
+
+.bxs-layer-plus {
+  /* margin-top: 18rem; */
+  /* padding: 1rem; */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 2rem;
+  border-radius: 8px;
+  color: #fff;
+}
+.bxs-layer-plus:hover {
+  color: #333;
+  background-color: rgba(149, 135, 135, 0.479);
+}
+#input {
+  display: none;
+}
+#input.active {
+  position: absolute;
+  display: flex;
+  margin-top: 67.5rem;
+  background-color: rgba(51, 51, 51, 0.544);
+}
+.table {
+  position: absolute;
+  width: calc(100% - 5rem);
+  height: calc(100% - 6rem);
+  background-color: rgb(252, 239, 190);
+  right: 0;
+  bottom: 0;
+  transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+.table.active {
+  width: calc(100% - 22.5rem);
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+.table-image {
+  position: absolute;
+  display: flex;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  background-color: palevioletred;
+  width: 60%;
+  height: 70%;
+  border-radius: 18px;
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+img {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  z-index: 0;
+}
+.duty {
+  position: absolute;
+  width: 85%;
+  transform: translateX(-50%);
+  left: 50%;
+  margin-top: 2rem;
+  color: #fff;
+  font-size: 3rem;
+  z-index: 1;
+  border-radius: 6px;
+}
+
+.box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  background-color: rgba(1, 91, 39, 0.907);
+  color: #fff;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+}
+.box:hover {
+  background-color: #333;
+  color: #fff;
+  font-weight: 500;
+}
+.bx-plus {
+  position: absolute;
+  font-size: x-large;
+  right: 1rem;
+  cursor: pointer;
+}
+.bxs-edit-alt {
+  position: absolute;
+  font-size: 2rem;
+  right: 3.2rem;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+.liste {
+  position: absolute;
+  display: flex;
+  margin-left: 3rem;
+  border-radius: 8px;
+  background: rgba(221, 218, 218, 0.173);
+  width: 13.2rem;
+  border: none;
+  color: rgb(0, 0, 0);
+  height: 3rem;
+  font-size: 1.8rem;
+  padding-left: 1rem;
+}
+.bx-upload {
+  color: #fff;
+  position: absolute;
+  right: 0.5rem;
+  font-size: 2rem;
+}
+
+.bxs-x-circle {
+  position: absolute;
+  right: 0.5rem;
+  font-size: 2rem;
+}
+.bxs-circle {
+  position: absolute;
+  font-size: 1.5rem;
+}
+#input-2 {
+  position: absolute;
+  background-color: #333;
+  margin-top: 43rem;
+}
+#box-plus-duty {
+  font-size: 2rem;
+}
+
+#list-duty {
+  border-radius: 8px;
+  background-color: rgba(127, 122, 122, 0.505);
+  width: 75%;
+}
