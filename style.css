@@ -30,6 +30,7 @@ body {
   width: calc(100% - 22.5rem);
   left: 22.5rem;
   transition: all 0.5s ease;
+  z-index: 1;
 }
 #title {
   font-size: 5rem;
@@ -89,21 +90,8 @@ body {
 li {
   height: 4rem;
   list-style: none;
-  /* display: flex;
-  align-items: center;
-  width: 21rem;
-  height: 3.8rem;
-  font-size: 2rem;
-  font-weight: 1000;
-  padding-left: 1rem;
-  margin-left: 1rem;
-  transition: all 0.5s ease;
-  border-radius: 8px;
-  color: rgb(7, 76, 42); */
-}
-a {
-  /* position: absolute; */
   display: flex;
+
   align-items: center;
   width: 21rem;
   height: 3.8rem;
@@ -116,18 +104,11 @@ a {
   border-radius: 8px;
   text-decoration: none;
 }
-a:hover {
+li:hover {
   color: #333;
   background-color: rgba(149, 135, 135, 0.479);
 }
-.links-name {
-  position: absolute;
-  margin-left: 2.5rem;
-}
-
-.bxs-layer-plus {
-  /* margin-top: 18rem; */
-  /* padding: 1rem; */
+a {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -145,7 +126,7 @@ a:hover {
 #input.active {
   position: absolute;
   display: flex;
-  margin-top: 67.5rem;
+  margin-top: 65.5rem;
   background-color: rgba(51, 51, 51, 0.544);
 }
 .table {
@@ -163,6 +144,7 @@ a:hover {
 }
 .table.active {
   width: calc(100% - 22.5rem);
+  height: 70rem;
   transition: all 0.5s ease;
   z-index: 0;
 }
@@ -255,10 +237,10 @@ img {
   right: 0.5rem;
   font-size: 2rem;
 }
-.bxs-circle {
+/*.bxs-circle {
   position: absolute;
   font-size: 1.5rem;
-}
+}*/
 #input-2 {
   position: absolute;
   background-color: #333;

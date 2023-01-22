@@ -31,37 +31,31 @@
 
         <!-- SIDE-BAR LİSTE-->
         <ul class="sidebar-list">
-          <li>
-            <a href="#" id="0">
-              <i class="bx bx-calendar"></i>
-              <span class="links-name">Today</span>
-              <i class="bx bxs-edit-alt"></i>
-              <i class="bx bxs-x-circle"></i>
-            </a>
+          <li id="0">
+            <i class="bx bx-calendar"></i>
+            <span class="links-name">Today</span>
+            <i class="bx bxs-edit-alt"></i>
+            <i class="bx bxs-x-circle"></i>
           </li>
-          <li>
-            <a href="#" id="1">
-              <i class="bx bx-bookmark"></i>
-              <span class="links-name">Important</span>
-              <i class="bx bxs-edit-alt"></i>
-              <i class="bx bxs-x-circle"></i>
-            </a>
+          <li id="1">
+            <i class="bx bx-bookmark"></i>
+            <span class="links-name">Important</span>
+            <i class="bx bxs-edit-alt"></i>
+            <i class="bx bxs-x-circle"></i>
           </li>
-          <li>
-            <a href="#" id="2">
-              <i class="bx bx-note"></i>
-              <span class="links-name">Notes</span>
-              <i class="bx bxs-edit-alt"></i>
-              <i class="bx bxs-x-circle"></i>
-            </a>
+          <li id="2">
+            <i class="bx bx-note"></i>
+            <span class="links-name">Notes</span>
+            <i class="bx bxs-edit-alt"></i>
+            <i class="bx bxs-x-circle"></i>
           </li>
         </ul>
-        <a href="#" id="input">
+        <li id="input">
           <i class="bx bxs-layer-plus"></i>
           <span class="links-name"></span>
           <input type="text" class="liste" />
           <i class="bx bx-upload"></i>
-        </a>
+        </li>
       </div>
 
       <!-- TO-DO SECTİON -->
@@ -69,14 +63,14 @@
         <div class="table-image">
           <img src="lemon-wallpaper.jpg" />
           <ul class="duty">
-            <li class="box">
+            <li class="box" id="main-0">
               <div>Important</div>
-              <i class="bx bx-plus"></i>
+              <i class="bx bxs-x-circle" id="main"></i>
               <i class="bx bxs-edit-alt"></i>
             </li>
-            <li class="box">
+            <li class="box" id="main-1">
               <div>Notes</div>
-              <i class="bx bx-plus"></i>
+              <i class="bx bxs-x-circle" id="main"></i>
               <i class="bx bxs-edit-alt"></i>
             </li>
           </ul>
@@ -84,7 +78,7 @@
             <i class="bx bxs-layer-plus" id="box-plus-duty"></i>
             <span class="links-name"></span>
             <input type="text" class="liste" id="list-duty" />
-            <i class="bx bx-upload" id=""></i>
+            <i class="bx bx-upload" id="main"></i>
           </a>
         </div>
       </div>
