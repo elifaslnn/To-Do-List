@@ -7,15 +7,14 @@ const table = document.querySelector(".table");
 let ulDOM = document.querySelector(".sidebar-list");
 const addList = document.querySelector(".liste");
 const input = document.getElementById("input");
+const input2 = document.getElementById("input-2");
 const inputMain = document.getElementById("list-duty");
 const firstList = document.getElementById("0");
 const secondList = document.getElementById("1");
 const thirdList = document.getElementById("2");
 let mainUlDOM = document.querySelector(".duty");
-const mainFirstList = document.getElementById("main-0");
-//mainFirstList.classList.add("box");
-const mainSecondList = document.getElementById("main-1");
-//mainSecondList.classList.add("box");
+const mainFirstList = document.getElementById("main-10");
+const mainSecondList = document.getElementById("main-11");
 
 //icon value
 const editBtn = document.querySelector(".bxs-edit-alt");
@@ -25,10 +24,6 @@ const mainAddListBtn = document.querySelector(".bx-upload#main");
 //side-bar List
 const lists = [firstList, secondList, thirdList];
 const listName = ["Today", "Important", "Notes"];
-
-// //main section list
-const mainList = [mainFirstList, mainSecondList];
-const mainListName = ["Important", "Notes"];
 
 //MENU BUTTON FUNCTİON
 menuBtn.addEventListener("click", function () {
@@ -48,7 +43,13 @@ input.addEventListener("click", function () {
   addList.classList.remove("hidden");
 });
 
-//LİSTEYE EKLEME
+// //MAIN SECTION GÖRÜNÜRLÜGÜ
+mainFirstList.classList.add("hidden");
+mainSecondList.classList.add("hidden");
+//input2.classList.add("hidden");
+
+let i = 3;
+//SIDEBAR-LİSTEYE EKLEME
 addListBtn.addEventListener("click", function () {
   let liDOM = document.createElement("li");
   let elEdit = document.createElement("i");
@@ -73,52 +74,62 @@ addListBtn.addEventListener("click", function () {
 
   listName.push(addList.value);
 
-  //LİSTE SİLME
+  //EKLENEN LİSTE SİLME
   for (let i = 3; i < lists.length; i++) {
     const deleteListBtn = document
       .getElementById(i)
       .getElementsByClassName("bxs-x-circle")[0];
     deleteListBtn.addEventListener("click", function () {
       lists[i].style.display = "none";
-      //lists.slice(i, 1);
-      console.log(lists);
+      listName[i] = "";
+      console.log(listName);
     });
   }
 
-  //LİSTE BAŞLIĞI
+  //EKLENEN LİSTE BAŞLIĞI
   for (let i = 3; i < lists.length; i++) {
     lists[i].addEventListener("click", function () {
-      // console.log("heelo");
-      // console.log(typeof listName[i]);
       title.innerHTML = listName[i];
     });
   }
 });
 
-//LİSTE SİLME
+// DEFAULT LİSTE SİLME
 for (let i = 0; i < lists.length; i++) {
   const deleteListBtn = document
     .getElementById(i)
     .getElementsByClassName("bxs-x-circle")[0];
   deleteListBtn.addEventListener("click", function () {
     lists[i].style.display = "none";
-    // lists.slice(i, 1);
+    listName[i] = "";
     console.log(lists);
   });
 }
 
-/////////////////////////////////////////////MAIN SECTİON////////////////////////////////////////////////////////////////////////////
+const twoD = new Array(lists.length);
+for (i = 0; i < twoD.length; i++) {
+  twoD[i] = new Array(0);
+}
 
-//LİSTE BAŞLIĞI
 for (let i = 0; i < lists.length; i++) {
   lists[i].addEventListener("click", function () {
-    // console.log("heelo");
-    // console.log(typeof listName[i]);
+    //BAŞLIK DEĞİŞTİRME
     title.innerHTML = listName[i];
   });
 }
-console.log(typeof inputMain.value);
-//MAIN KISMINA GÖREV EKLEME
+
+const mainList = new Array(lists.length);
+for (i = 0; i < twoD.length; i++) {
+  mainList[i] = new Array(0);
+}
+const mainListId = new Array(lists.length);
+for (i = 0; i < lists.length; i++) {
+  mainListId[i] = new Array(0);
+}
+
+console.log(mainList[0].length);
+
+/////////////////////////MAIN SECTION//////////////////////////////////////
 mainAddListBtn.addEventListener("click", function () {
   const mainLiDOM = document.createElement("li");
   mainLiDOM.classList.add("box");
@@ -134,33 +145,33 @@ mainAddListBtn.addEventListener("click", function () {
   mainLiDOM.append(plusBtn);
   mainLiDOM.append(elText);
   mainUlDOM.append(mainLiDOM);
-  const idName = "main-" + mainList.length;
-  mainLiDOM.setAttribute("id", idName);
-  mainList.push(mainLiDOM);
 
-  //listeden silme
-  for (let i = 2; i < mainList.length; i++) {
-    const idName2 = "main-" + i;
-    const deleteListBtn = document
-      .getElementById(idName2)
-      .getElementsByClassName("bxs-x-circle")[0];
-    deleteListBtn.addEventListener("click", function () {
-      mainList[i].style.display = "none";
-      mainList.slice(i, 1);
+  for (i = 0; i < lists.length; i++) {
+    if (title.innerHTML == listName[i]) {
+      const idName = "main-" + i;
+      mainLiDOM.setAttribute("id", idName);
+      console.log(listName[i]);
+      mainList[i].push(mainLiDOM);
+      mainListId[i].push(idName);
       console.log(mainList);
-    });
+    }
   }
 });
+/////////////DEFAULT MADDELER İÇİN GÖREVLERİ SPESİFİK GÖSTERME//////////////////////////
 
-//MAIN SECTİON İLK İKİ LİSTEYİ SİLME
-
-for (let i = 0; i < 2; i++) {
-  const idName2 = "main-" + i;
-  const deleteListBtn = document
-    .getElementById(idName2)
-    .getElementsByClassName("bxs-x-circle")[0];
-  deleteListBtn.addEventListener("click", function () {
-    mainList[i].style.display = "none";
-    console.log(mainList);
+for (let i = 0; i < lists.length; i++) {
+  lists[i].addEventListener("click", function () {
+    for (let j = 0; j < lists.length; j++) {
+      if (i != j && mainList[j].length != 0) {
+        for (let k = 0; k < mainList[j].length; k++) {
+          mainList[j][k].style.display = "none";
+        }
+      }
+      if (i == j) {
+        for (let k = 0; k < mainList[j].length; k++) {
+          mainList[j][k].style.display = "flex";
+        }
+      }
+    }
   });
 }
