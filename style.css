@@ -40,7 +40,7 @@ body {
   position: absolute;
   padding-top: 2rem;
   width: 5rem;
-  height: 100vh;
+  height: 100%;
   font-size: 2rem;
   background-color: rgb(243, 210, 111);
   transition: all 0.5s ease;
@@ -78,8 +78,6 @@ body {
 }
 .sidebar-list {
   display: none;
-  /* position: absolute;
-  margin-top: 4.5rem; */
 }
 .sidebar-list.active {
   display: block;
@@ -126,7 +124,7 @@ a {
 #input.active {
   position: absolute;
   display: flex;
-  margin-top: 65.5rem;
+  bottom: 1.5rem;
   background-color: rgba(51, 51, 51, 0.544);
 }
 .table {
@@ -138,8 +136,6 @@ a {
   bottom: 0;
   transition: all 0.5s ease;
   display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 0;
 }
 .table.active {
@@ -161,6 +157,62 @@ a {
   transition: all 0.5s ease;
   z-index: 0;
 }
+.themeSection {
+  position: absolute;
+  display: flex;
+  width: 15%;
+  height: 40rem;
+  right: 2%;
+  top: 15.9%;
+  border-radius: 18px;
+  z-index: 2;
+}
+.themeBtn {
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: rgb(93, 127, 15);
+  cursor: pointer;
+  font-size: x-large;
+}
+.themeBtn:hover {
+  color: #333;
+  background-color: rgb(243, 210, 111);
+}
+.theme {
+  position: absolute;
+  background-color: rgb(243, 210, 111);
+  width: 100%;
+  height: 0;
+  top: 4.2rem;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding-bottom: 2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.theme.active {
+  height: auto;
+}
+
+.t.active {
+  margin-top: 2rem;
+  width: 4.2rem;
+  height: 4rem;
+  background-color: rgb(93, 127, 15);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 img {
   position: absolute;
   display: flex;
@@ -250,10 +302,6 @@ img {
   right: 0.5rem;
   font-size: 2rem;
 }
-/*.bxs-circle {
-  position: absolute;
-  font-size: 1.5rem;
-}*/
 #input-2 {
   position: absolute;
   background-color: #333;

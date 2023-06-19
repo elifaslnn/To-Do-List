@@ -15,6 +15,9 @@ const thirdList = document.getElementById("2");
 let mainUlDOM = document.querySelector(".duty");
 const mainFirstList = document.getElementById("main-1000");
 const mainSecondList = document.getElementById("main-1001");
+const themeBtn = document.querySelector(".themeBtn");
+const theme = document.querySelector(".theme");
+const selectTheme = document.querySelectorAll(".t");
 
 //icon value
 const editBtn = document.querySelector(".bxs-edit-alt");
@@ -30,6 +33,21 @@ header.classList.toggle("active");
 table.classList.toggle("active");
 input.classList.toggle("active");
 
+theme.style.visibility = "hidden";
+themeBtn.addEventListener("click", function () {
+  console.log("basildi");
+  if (theme.style.visibility == "hidden") {
+    theme.style.visibility = "visible";
+  } else {
+    theme.style.visibility = "hidden";
+  }
+  theme.classList.toggle("active");
+
+  for (let i = 0; i < selectTheme.length; i++) {
+    selectTheme[i].classList.toggle("active");
+  }
+});
+
 //MENU BUTTON FUNCTİON
 menuBtn.addEventListener("click", function () {
   sidebar.classList.toggle("active");
@@ -41,18 +59,8 @@ menuBtn.addEventListener("click", function () {
   input.classList.toggle("active");
 });
 
-//LİSTE EKLEME BÖLÜMÜNÜN GÖRÜNÜRLÜĞÜ
-addList.classList.add("hidden");
-
-input.addEventListener("click", function () {
-  addList.classList.remove("hidden");
-});
-
 // //MAIN SECTION GÖRÜNÜRLÜGÜ
 input2.style.visibility = "hidden";
-
-let i = 3;
-
 //SIDEBAR-LİSTEYE EKLEME
 const addSidebarList = function () {
   let count = 0;
