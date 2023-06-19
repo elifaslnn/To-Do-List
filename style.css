@@ -225,6 +225,19 @@ img {
   font-size: 1.8rem;
   padding-left: 1rem;
 }
+.liste2 {
+  position: absolute;
+  display: flex;
+  margin-left: 3rem;
+  border-radius: 8px;
+  background: rgba(221, 218, 218, 0.173);
+  width: 11.5rem;
+  border: none;
+  color: rgb(0, 0, 0);
+  height: 3rem;
+  font-size: 1.8rem;
+  padding-left: 1rem;
+}
 .bx-upload {
   color: #fff;
   position: absolute;

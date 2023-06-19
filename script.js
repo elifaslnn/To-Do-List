@@ -52,8 +52,9 @@ input.addEventListener("click", function () {
 input2.style.visibility = "hidden";
 
 let i = 3;
+
 //SIDEBAR-LİSTEYE EKLEME
-addListBtn.addEventListener("click", function () {
+const addSidebarList = function () {
   let count = 0;
   for (let i = 0; i < ulDOM.childNodes.length; i++) {
     if (ulDOM.childNodes[i].tagName === "LI") {
@@ -82,7 +83,19 @@ addListBtn.addEventListener("click", function () {
   console.log(liDOM.id);
   addList.value = "";
   console.log(addList.value);
+};
+//butona basıldığında ekleme
+addListBtn.addEventListener("click", function () {
+  addSidebarList();
 });
+
+document.addEventListener("keypress", function (e) {
+  if (e.key == "Enter") {
+    addSidebarList();
+  }
+});
+
+let editCheck = true;
 
 ulDOM.addEventListener("click", function (e) {
   console.log(e.target.parentElement);
@@ -111,6 +124,7 @@ ulDOM.addEventListener("click", function (e) {
     console.log(mainUlDOM.id);
 
     input2.style.visibility = "visible";
+    //o listeye ait listelerin görünmesi
     for (let i = 0; i < mainUlDOM.childNodes.length; i++) {
       if (
         mainUlDOM.childNodes[i].tagName === "LI" &&
@@ -125,10 +139,40 @@ ulDOM.addEventListener("click", function (e) {
       }
     }
   }
+  //listeyi düzenleme
+  console.log(e.target.className);
+  if (e.target.className === "bx bxs-edit-alt") {
+    const editBtnS = e.target;
+    const input = document.createElement("input");
+    input.type = "text";
+    input.className = "liste2";
+    e.target.parentElement.appendChild(input);
+    const parent = e.target.parentElement;
+    e.target.style.display = "none";
+    let span;
+    for (let i = 0; i < parent.childNodes.length; i++) {
+      if (parent.childNodes[i].tagName === "SPAN") {
+        parent.childNodes[i].style.display = "none";
+        span = parent.childNodes[i];
+        editCheck = false;
+      }
+    }
+    document.addEventListener("keypress", function (e) {
+      console.log("event.key:" + e.key.type + "  event.code:" + e.code);
+      if (e.key == "Enter") {
+        console.log("selam");
+        span.style.display = "block";
+        editBtnS.style.display = "block";
+        span.innerHTML = input.value;
+        input.remove();
+        title.innerHTML = input.value;
+      }
+    });
+  }
 });
 
 /////////////////////////MAIN SECTION//////////////////////////////////////
-mainAddListBtn.addEventListener("click", function () {
+const addMainList = function () {
   console.log(mainUlDOM.id);
   const mainLiDOM = document.createElement("li");
   mainLiDOM.classList.add("box");
@@ -147,6 +191,16 @@ mainAddListBtn.addEventListener("click", function () {
   mainUlDOM.append(mainLiDOM);
   ///////////////////////////////
   inputMain.value = "";
+};
+//butona basıldığında
+mainAddListBtn.addEventListener("click", function () {
+  addMainList();
+});
+//enter basıldığında
+document.addEventListener("keypress", function (e) {
+  if (e.key == "Enter") {
+    addMainList();
+  }
 });
 
 //main section görev silme
