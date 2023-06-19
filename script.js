@@ -89,7 +89,7 @@ addListBtn.addEventListener("click", function () {
   addSidebarList();
 });
 
-document.addEventListener("keypress", function (e) {
+input.addEventListener("keypress", function (e) {
   if (e.key == "Enter") {
     addSidebarList();
   }
@@ -157,7 +157,7 @@ ulDOM.addEventListener("click", function (e) {
         editCheck = false;
       }
     }
-    document.addEventListener("keypress", function (e) {
+    parent.addEventListener("keypress", function (e) {
       console.log("event.key:" + e.key.type + "  event.code:" + e.code);
       if (e.key == "Enter") {
         console.log("selam");
@@ -197,7 +197,7 @@ mainAddListBtn.addEventListener("click", function () {
   addMainList();
 });
 //enter basıldığında
-document.addEventListener("keypress", function (e) {
+input2.addEventListener("keypress", function (e) {
   if (e.key == "Enter") {
     addMainList();
   }
