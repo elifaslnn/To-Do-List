@@ -118,8 +118,13 @@ a {
   color: #333;
   background-color: rgba(149, 135, 135, 0.479);
 }
+.bx-upload {
+  cursor: pointer;
+}
 #input {
   display: none;
+  color: #fff;
+  height: 4rem;
 }
 #input.active {
   position: absolute;
@@ -157,53 +162,174 @@ a {
   transition: all 0.5s ease;
   z-index: 0;
 }
-.themeSection {
+/*.extraSection {
+  display: flex;
+  flex-direction: column;
+}*/
+
+.extraSection {
   position: absolute;
   display: flex;
-  width: 15%;
+  flex-direction: column;
+  width: 4rem;
+  /* width: 15%; */
   height: 40rem;
-  right: 2%;
+  right: 0;
   top: 15.9%;
   border-radius: 18px;
-  z-index: 2;
 }
-.themeBtn {
-  position: absolute;
-  right: 1rem;
-  top: 0;
+.extra {
+  /* position: relative; */
   width: 4rem;
-  height: 4rem;
+  height: 15rem;
+  background-color: pink;
+  left: 100%-4rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: rgb(93, 127, 15);
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  background-color: rgb(93, 127, 15);
   cursor: pointer;
   font-size: x-large;
+  transition: ease-in 0.5s;
 }
-.themeBtn:hover {
+#themeBtn {
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#pomodoroBtn {
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#pomodoroBtn.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 6rem;
+  background-color: rgb(243, 210, 111);
+  transition: ease-in 0.5s;
+}
+#pomodoroBtn.active:hover {
+  background-color: rgb(93, 127, 15);
+}
+#pomodoroBtn:hover {
   color: #333;
   background-color: rgb(243, 210, 111);
 }
-.theme {
-  position: absolute;
+
+#themeBtn.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 6rem;
   background-color: rgb(243, 210, 111);
-  width: 100%;
-  height: 0;
-  top: 4.2rem;
-  border-radius: 10px;
+  transition: ease-in 0.5s;
+}
+#themeBtn.active:hover {
+  background-color: rgb(93, 127, 15);
+}
+#themeBtn:hover {
+  color: #333;
+  background-color: rgb(243, 210, 111);
+}
+.eSection {
+  position: absolute;
+  right: 0;
+  background-color: rgb(252, 239, 190);
+  width: 15%;
+  height: 20;
+  /* top: 15rem; */
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
   padding-bottom: 2rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  transition: ease-in 0.5s;
 }
-
-.theme.active {
+#theme {
+  top: 25rem;
+}
+#theme.active {
+  background-color: rgb(243, 210, 111);
   height: auto;
+  top: 23%;
 }
-
+#pomodoro {
+  top: 25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+  width: 80%;
+  height: 70%;
+  background-color: rgba(123, 122, 122, 0.42);
+  /* opacity: 50%; */
+  color: black;
+  border-radius: 8px;
+  color: rgb(93, 127, 15);
+  font-size: 2.5vw;
+  padding-bottom: 0;
+}
+.timerBtns {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  bottom: 0;
+}
+#startBtn {
+  position: absolute;
+  background-color: rgba(123, 122, 122, 0.42);
+  border-radius: 0.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0.5rem;
+  left: 15%;
+  height: 2rem;
+  width: 6.5rem;
+  font-size: 1vw;
+}
+#breakBtn {
+  position: absolute;
+  background-color: rgba(123, 122, 122, 0.42);
+  border-radius: 0.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0.5rem;
+  right: 15%;
+  height: 2rem;
+  width: 6.5rem;
+  font-size: 1vw;
+}
+#pomodoro.active {
+  background-color: rgb(243, 210, 111);
+  height: 10rem;
+  top: 23%;
+}
 .t.active {
   margin-top: 2rem;
   width: 4.2rem;
@@ -277,6 +403,10 @@ img {
   font-size: 1.8rem;
   padding-left: 1rem;
 }
+::placeholder {
+  color: #fff;
+  opacity: 40%;
+}
 .liste2 {
   position: absolute;
   display: flex;
@@ -301,11 +431,15 @@ img {
   position: absolute;
   right: 0.5rem;
   font-size: 2rem;
+  cursor: pointer;
 }
 #input-2 {
+  height: 4rem;
   position: absolute;
   background-color: #333;
-  margin-top: 43rem;
+  bottom: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 2rem;
 }
 #box-plus-duty {
   font-size: 2rem;

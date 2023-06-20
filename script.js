@@ -15,10 +15,11 @@ const thirdList = document.getElementById("2");
 let mainUlDOM = document.querySelector(".duty");
 const mainFirstList = document.getElementById("main-1000");
 const mainSecondList = document.getElementById("main-1001");
-const themeBtn = document.querySelector(".themeBtn");
-const theme = document.querySelector(".theme");
+const themeBtn = document.querySelector("#themeBtn");
+const theme = document.querySelector("#theme");
 const selectTheme = document.querySelectorAll(".t");
-
+const pomodoro = document.querySelector("#pomodoro");
+const pomodoroBtn = document.querySelector("#pomodoroBtn");
 //icon value
 const editBtn = document.querySelector(".bxs-edit-alt");
 const addListBtn = document.querySelector(".bx-upload");
@@ -38,13 +39,28 @@ themeBtn.addEventListener("click", function () {
   console.log("basildi");
   if (theme.style.visibility == "hidden") {
     theme.style.visibility = "visible";
+    pomodoroBtn.style.display = "none";
   } else {
     theme.style.visibility = "hidden";
+    pomodoroBtn.style.display = "flex";
   }
   theme.classList.toggle("active");
-
+  themeBtn.classList.toggle("active");
   for (let i = 0; i < selectTheme.length; i++) {
     selectTheme[i].classList.toggle("active");
+  }
+});
+pomodoro.style.visibility = "hidden";
+pomodoroBtn.addEventListener("click", function () {
+  pomodoro.classList.toggle("active");
+  pomodoroBtn.classList.toggle("active");
+  // themeBtn.style.display = "none";
+  if (themeBtn.style.display == "none") {
+    themeBtn.style.display = "flex";
+    pomodoro.style.visibility = "hidden";
+  } else {
+    themeBtn.style.display = "none";
+    pomodoro.style.visibility = "visible";
   }
 });
 
