@@ -20,11 +20,23 @@ const theme = document.querySelector("#theme");
 const selectTheme = document.querySelectorAll(".t");
 const pomodoro = document.querySelector("#pomodoro");
 const pomodoroBtn = document.querySelector("#pomodoroBtn");
+const pomodoroTimerBtn = document.querySelector("#timerBtn");
+const breakTimerBtn = document.querySelector("#breakBtn");
+const timer = document.querySelector(".timer");
+const startTimerBtn = document.querySelector(".pause");
+const tableImg = document.querySelector(".table-image");
+const fullscrennBtn = document.querySelector(".bx-fullscreen");
+
 //icon value
 const editBtn = document.querySelector(".bxs-edit-alt");
 const addListBtn = document.querySelector(".bx-upload");
 const mainAddListBtn = document.querySelector(".bx-upload#main");
 
+//
+startTimerBtn.style.transition = "ease-in 0s";
+// theme.style.transition = "ease-in 0s";
+//
+console.log(document.querySelector(":root").style.display);
 //side-bar List
 sidebar.classList.toggle("active");
 menuBtn.classList.toggle("active");
@@ -35,14 +47,17 @@ table.classList.toggle("active");
 input.classList.toggle("active");
 
 theme.style.visibility = "hidden";
+
 themeBtn.addEventListener("click", function () {
   console.log("basildi");
   if (theme.style.visibility == "hidden") {
     theme.style.visibility = "visible";
     pomodoroBtn.style.display = "none";
+    tableImg.style.left = "45%";
   } else {
     theme.style.visibility = "hidden";
     pomodoroBtn.style.display = "flex";
+    tableImg.style.left = "50%";
   }
   theme.classList.toggle("active");
   themeBtn.classList.toggle("active");
@@ -57,8 +72,12 @@ pomodoroBtn.addEventListener("click", function () {
   // themeBtn.style.display = "none";
   if (themeBtn.style.display == "none") {
     themeBtn.style.display = "flex";
+    startTimerBtn.style.transition = "ease-in 0s";
     pomodoro.style.visibility = "hidden";
+    tableImg.style.left = "50%";
   } else {
+    tableImg.style.left = "45%";
+    startTimerBtn.style.transition = "ease-in 0.5s";
     themeBtn.style.display = "none";
     pomodoro.style.visibility = "visible";
   }
@@ -232,4 +251,68 @@ mainUlDOM.addEventListener("click", function (e) {
   if (e.target.className === "bx bxs-x-circle") {
     e.target.parentElement.remove();
   }
+});
+
+//pomodoro timer
+
+let timerCount = 25;
+let totalSecond = timerCount * 60;
+function pomodoroFunc() {
+  // console.log(totalSecond);
+  const minute = Math.floor(totalSecond / 60);
+  const second = totalSecond - minute * 60;
+  console.log(minute);
+  totalSecond--;
+  if (timer.innerHTML == "00.00") {
+    clearInterval(intervalID);
+    timer.innerHTML = "00.00";
+    startTimerBtn.innerHTML = "start";
+    startTimerBtn.classList.toggle("active");
+  } else {
+    let minuteSt = "";
+    let secondSt = "";
+
+    if (minute / 10 < 1) {
+      minuteSt = `0${minute}`;
+    } else {
+      minuteSt = minute;
+    }
+    if (second / 10 < 1) {
+      secondSt = `0${second}`;
+    } else {
+      secondSt = second;
+    }
+    console.log("${minuteSt}.${secondSt}");
+    timer.innerHTML = `${minuteSt}.${secondSt}`;
+  }
+}
+var intervalID;
+startTimerBtn.addEventListener("click", function () {
+  if (startTimerBtn.innerHTML == "stop") {
+    startTimerBtn.innerHTML = "start";
+    startTimerBtn.classList.toggle("active");
+
+    clearInterval(intervalID);
+  } else if (startTimerBtn.innerHTML == "start") {
+    startTimerBtn.innerHTML = "stop";
+    startTimerBtn.classList.toggle("active");
+    intervalID = setInterval(pomodoroFunc, 100);
+  }
+});
+
+breakTimerBtn.addEventListener("click", function () {
+  totalSecond = 5 * 60;
+  timer.innerHTML = "05.00";
+
+  clearInterval(intervalID);
+  pomodoroFunc();
+  startTimerBtn.innerHTML = "start";
+});
+
+pomodoroTimerBtn.addEventListener("click", function () {
+  totalSecond = 25 * 60;
+  timer.innerHTML = "25.00";
+  clearInterval(intervalID);
+  pomodoroFunc();
+  startTimerBtn.innerHTML = "start";
 });

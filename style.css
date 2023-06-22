@@ -12,15 +12,20 @@ html {
 body {
   font-family: "Courier New", Courier, monospace;
   color: #333;
-  background-color: rgb(252, 239, 190);
+  background-color: var(--primary-color);
 }
 
+:root {
+  --primary-color: rgb(252, 239, 190);
+  --secondory-color: rgb(243, 210, 111);
+  --third-color: rgb(93, 127, 15);
+}
 .header {
   position: absolute;
   width: calc(100% - 5rem);
   left: 5rem;
   height: 6rem;
-  background-color: rgb(252, 239, 190);
+  background-color: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,7 +103,7 @@ li {
   padding-left: 1rem;
   margin-left: 1rem;
   transition: all 0.5s ease;
-  color: rgb(93, 127, 15);
+  color: var(--third-color);
   border-radius: 8px;
   text-decoration: none;
 }
@@ -136,7 +141,7 @@ a {
   position: absolute;
   width: calc(100% - 5rem);
   height: calc(100% - 6rem);
-  background-color: rgb(252, 239, 190);
+  background-color: var(--primary-color);
   right: 0;
   bottom: 0;
   transition: all 0.5s ease;
@@ -155,7 +160,6 @@ a {
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
-  background-color: palevioletred;
   width: 60%;
   height: 70%;
   border-radius: 18px;
@@ -189,7 +193,7 @@ a {
   align-items: center;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  background-color: rgb(93, 127, 15);
+  background-color: var(--third-color);
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -201,12 +205,14 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: ease-in 0.5s;
 }
 #pomodoroBtn {
   right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: ease-in 0.5s;
 }
 #pomodoroBtn.active {
   display: flex;
@@ -214,15 +220,15 @@ a {
   align-items: center;
   width: 4rem;
   height: 6rem;
-  background-color: rgb(243, 210, 111);
+  background-color: var(--secondory-color);
   transition: ease-in 0.5s;
 }
 #pomodoroBtn.active:hover {
-  background-color: rgb(93, 127, 15);
+  background-color: var(--third-color);
 }
 #pomodoroBtn:hover {
   color: #333;
-  background-color: rgb(243, 210, 111);
+  background-color: var(--secondory-color);
 }
 
 #themeBtn.active {
@@ -231,22 +237,22 @@ a {
   align-items: center;
   width: 4rem;
   height: 6rem;
-  background-color: rgb(243, 210, 111);
+  background-color: var(--secondory-color);
   transition: ease-in 0.5s;
 }
 #themeBtn.active:hover {
-  background-color: rgb(93, 127, 15);
+  background-color: var(--third-color);
 }
 #themeBtn:hover {
   color: #333;
-  background-color: rgb(243, 210, 111);
+  background-color: var(--secondory-color);
 }
 .eSection {
   position: absolute;
   right: 0;
-  background-color: rgb(252, 239, 190);
-  width: 15%;
-  height: 20;
+  background-color: var(--primary-color);
+  width: 20%;
+  height: auto;
   /* top: 15rem; */
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
@@ -256,85 +262,120 @@ a {
   padding-bottom: 2rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  transition: ease-in 0.5s;
+  /* transition: ease-in 0.5s; */
 }
 #theme {
   top: 25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: ease-in 0.5s;
 }
 #theme.active {
-  background-color: rgb(243, 210, 111);
+  background-color: var(--secondory-color);
   height: auto;
   top: 23%;
 }
-#pomodoro {
+.akis {
   top: 25rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+#pomodoro {
+  top: 25rem;
+  display: flex;
+  flex-direction: row-reverse;
+  transition: ease-in 0.5s;
+}
+
+#pomodoro.active {
+  background-color: var(--secondory-color);
+  height: auto;
+  top: 23%;
+}
+.timerBtns {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+#timerBtn {
+  background-color: rgba(123, 122, 122, 0.42);
+  border-radius: 0.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0.5rem;
+  left: 15%;
+  height: 2rem;
+  width: 5vw;
+  font-size: 1vw;
+}
+#breakBtn {
+  background-color: rgba(123, 122, 122, 0.42);
+  border-radius: 0.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0.5rem;
+  left: 15%;
+  height: 2rem;
+  width: 5vw;
+  font-size: 1vw;
+}
+
 .timer {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0.5rem;
-  width: 80%;
-  height: 70%;
   background-color: rgba(123, 122, 122, 0.42);
-  /* opacity: 50%; */
-  color: black;
   border-radius: 8px;
-  color: rgb(93, 127, 15);
+  color: black;
+  width: 90%;
+  height: 5vw;
   font-size: 2.5vw;
-  padding-bottom: 0;
 }
-.timerBtns {
-  margin-top: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 10px;
-  bottom: 0;
-}
-#startBtn {
-  position: absolute;
-  background-color: rgba(123, 122, 122, 0.42);
+.pause {
+  background-color: rgb(152, 216, 170);
   border-radius: 0.3rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: 0.5rem;
-  left: 15%;
+  top: 0.5rem;
   height: 2rem;
-  width: 6.5rem;
+  width: 90%;
   font-size: 1vw;
+  position: relative;
+  transition: ease-in 0.5s;
 }
-#breakBtn {
-  position: absolute;
-  background-color: rgba(123, 122, 122, 0.42);
-  border-radius: 0.3rem;
+.pause.active {
+  background-color: rgb(255, 125, 125);
+  transition: ease-in 0.5s;
+}
+.setting {
+  font-size: 2.1rem;
+  margin-top: 1rem;
+  top: 2rem;
+  height: 2rem;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  bottom: 0.5rem;
-  right: 15%;
-  height: 2rem;
-  width: 6.5rem;
-  font-size: 1vw;
 }
-#pomodoro.active {
-  background-color: rgb(243, 210, 111);
-  height: 10rem;
-  top: 23%;
+.bx-fullscreen {
+  cursor: pointer;
 }
+
 .t.active {
   margin-top: 2rem;
   width: 4.2rem;
   height: 4rem;
-  background-color: rgb(93, 127, 15);
+  background-color: var(--third-color);
   border-radius: 5px;
   cursor: pointer;
 }
