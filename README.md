@@ -10,11 +10,6 @@ To-Do list with JavaScript
     * minimalist theme
 - pomodoro
 
-## Running the project
-First download the project to your own computer.<br/>
-Then <br/>
-`live-server`
-
 ## Authors
 [Elif Aslan][1]
 
